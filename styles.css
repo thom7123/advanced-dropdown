@@ -1,67 +1,93 @@
 body {
-  margin: 0;
-}
-
-.header {
-  background-color: #F3F3F3;
+  font-family: Helvetica, sans-serif;
+  background: #23242a;
+  min-heigt: 100vh;
   display: flex;
-  align-items: baseline;
-  padding: .5rem;
-  gap: 1rem;
-}
-
-.link {
-  background: none;
-  border: none;
-  text-decoration: none;
-  color: #777;
-  font-family: inherit;
-  font-size: inherit;
-  cursor: pointer;
-  padding: 0;
-}
-
-.dropdown.active > .link,
-.link:hover {
-  color: black;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .dropdown {
+  min-width: 15em;
   position: relative;
+  margin: 2em;
 }
 
-.dropdown-menu {
-  position: absolute;
-  left: 0;
-  top: calc(100% + .25rem);
-  background-color: white;
-  padding: .75rem;
-  border-radius: .25rem;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-10px);
-  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+.dropdown * {
+  box-sizing: border-box;
 }
 
-.dropdown.active > .link + .dropdown-menu {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.information-grid {
-  display: grid;
-  grid-template-columns: repeat(2, max-content);
-  gap: 2rem;
-}
-
-.dropdown-links {
+.select {
+  background: #2a2f3d;
+  color: #fff;
   display: flex;
-  flex-direction: column;
-  gap: .25rem;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px #23242a solid;
+  border-radius: 0.5em;
+  padding: 1em;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-.login-form > input {
-  margin-bottom: .5rem;
+.select-clicked {
+  border: 2px #26489a solid;
+  box-shadow: 0 0 0.8em #26489a;
+}
+
+.select:hover {
+  background: #323741;
+}
+
+.caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #fff;
+  transition: 0.3s;
+}
+
+.caret-rotate {
+  transform: rotate(180deg);
+}
+
+.menu {
+  list-style: none;
+  padding: 0.2em 0.5em;
+  background: #323741;
+  border: 1px #363a43 solid;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  color: #9fa5b5;
+  position: absolute;
+  top: 3em;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  opacity: 0;
+  display: none;
+  transition: 0.2s;
+  z-index: 1;
+}
+
+.menu li {
+  padding: 0.7em 0.5em;
+  marign: 0.3em 0;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.menu li.hover {
+  background: #2a2d35;
+}
+
+.active {
+  background: #23242a;
+}
+
+.menu-open {
+  display: block;
+  opacity: 1;
 }
